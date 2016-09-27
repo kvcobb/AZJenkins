@@ -29,7 +29,7 @@
         state: present
         line: osic-qa-build-dfw1
       tags:
-        - always
+        - dfw
 
     - name: "Add server to hosts file - IAD"
       local_action:
