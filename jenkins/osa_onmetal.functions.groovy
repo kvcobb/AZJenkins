@@ -26,7 +26,7 @@ def onmetal_provision(datacenter_tag) {
     try {
 
         // Spin onMetal Server
-        echo 'Running the following playbook: build_onmetal'
+        echo '<KC-VER> Running the following playbook: build_onmetal'
         ansiblePlaybook playbook: 'build_onmetal.yaml', sudoUser: null, tags: "${datacenter_tag}"
 
         // Verify onMetal server data
