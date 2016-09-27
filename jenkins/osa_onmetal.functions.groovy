@@ -26,15 +26,15 @@ def onmetal_provision(datacenter_tag) {
     try {
 
         // Spin onMetal Server
-        //echo 'Running the following playbook: build_onmetal'
-        //ansiblePlaybook playbook: 'build_onmetal.yaml', sudoUser: null, tags: "${datacenter_tag}"
+        echo 'Running the following playbook: build_onmetal'
+        ansiblePlaybook playbook: 'build_onmetal.yaml', sudoUser: null, tags: "${datacenter_tag}"
 
         // Verify onMetal server data
-        //echo 'Running the following playbook: get_onmetal_facts'
-        //ansiblePlaybook inventory: 'hosts', playbook: 'get_onmetal_facts.yaml', sudoUser: null, tags: "${datacenter_tag}"
+        echo 'Running the following playbook: get_onmetal_facts'
+        ansiblePlaybook inventory: 'hosts', playbook: 'get_onmetal_facts.yaml', sudoUser: null, tags: "${datacenter_tag}"
     
         // Get server IP address
-        ip = '192.168.1.90'
+        ip = get_onmetal_ip()
 
         // Prepare OnMetal server, retry up to 5 times for the command to work
         echo 'Running the following playbook: prepare_onmetal'
